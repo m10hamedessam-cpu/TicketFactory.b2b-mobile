@@ -1,0 +1,205 @@
+@reference "tailwindcss";
+
+/**********************page-content***************************************/
+.login {
+    @apply min-h-screen w-full bg-[#050B1D] text-white;
+}
+
+/**********************************************************/
+.page-content {
+    @apply px-4 pt-4;
+}
+
+/********************2**********************************/
+.logo {
+    @apply flex items-center gap-3;
+}
+
+.logo span:first-child {
+    @apply flex h-10 w-10 items-center justify-center rounded-xl bg-[#FF6633] text-lg font-bold text-white;
+}
+
+.logo span:last-child {
+    @apply text-2xl font-bold;
+}
+
+/*********************3*******************************************/
+.platform {
+    @apply mt-6;
+}
+
+.platform>span {
+    @apply text-xs font-medium text-[#FF6633];
+}
+
+/*********************4**********************************************/
+.platform-content {
+    @apply mt-3;
+}
+
+.platform-content h1 {
+    @apply text-2xl font-bold leading-tight;
+}
+
+.platform-content p {
+    @apply mt-3 text-sm leading-relaxed text-gray-400;
+}
+
+/* *********************5******************************************* */
+.page-login {
+    @apply mt-5 rounded-t-2xl bg-white px-4 py-5 text-[#111827];
+}
+
+/* *********************6********************************************************* */
+.hero-stats {
+    @apply mt-6 grid grid-cols-3 border-t border-white/10 pt-4;
+}
+
+.stat-item {
+    @apply flex flex-col gap-1 px-2;
+}
+
+.stat-item:not(:last-child) {
+    @apply border-r border-white/10;
+}
+
+.stat-item strong {
+    @apply text-base font-semibold text-white;
+}
+
+.stat-item span {
+    @apply text-xs text-gray-400;
+}
+
+/************************ page-login *********************************/
+.page-login {
+    @apply bg-white text-[#111827] rounded-t-3xl px-5 py-7;
+}
+
+.login-card {
+    @apply w-full;
+}
+
+.login-header {
+    @apply mb-6;
+}
+
+.login-header h2 {
+    @apply text-2xl font-bold;
+}
+
+.login-header p {
+    @apply mt-2 text-sm text-gray-500;
+}
+
+/**********************************************************************/
+.form-group {
+    @apply flex flex-col gap-2 mb-5;
+}
+
+.form-group label {
+    @apply text-sm font-semibold text-gray-700;
+}
+
+.form-group input {
+    @apply w-full h-12 rounded-lg border border-gray-300 px-3 text-sm outline-none;
+}
+
+.form-group input:focus {
+    @apply border-orange-500 ring-2 ring-orange-100;
+}
+
+.form-group input::placeholder {
+    @apply text-gray-400;
+}
+
+/**************************************************************************/
+.forgot-password {
+    @apply flex justify-end -mt-2 mb-5;
+}
+
+.forgot-password a {
+    @apply text-sm font-semibold text-orange-600 no-underline;
+}
+
+/***********************************************************************/
+.form-group button {
+    @apply text-sm font-semibold text-orange-600;
+}
+
+/***********************************************************************/
+.password-wrapper {
+    @apply relative w-full;
+}
+
+.password-wrapper input {
+    @apply pr-16;
+}
+
+.password-wrapper button {
+    @apply absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-orange-600;
+}
+
+/* Submit Button */
+.submit-button {
+    @apply mt-5 w-full;
+}
+
+.submit-button button {
+    @apply w-full h-12 rounded-lg bg-[#FF6633] text-sm font-semibold text-white transition-colors;
+}
+
+.submit-button button:hover {
+    @apply bg-orange-600;
+}
+
+.submit-button button:active {
+    @apply scale-[0.98];
+}
+
+/*******************************************************************/
+.support {
+    @apply flex items-center justify-center gap-1 mt-6 text-xs;
+}
+
+.support span {
+    @apply text-gray-500;
+}
+
+.support a {
+    @apply font-medium text-orange-600 no-underline;
+}
+
+
+@media (min-width: 1024px) {
+    .login {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .page-content {
+        width: 50%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 48px;
+    }
+
+    .page-login {
+        width: 50%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        padding: 48px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 430px;
+        margin: auto;
+    }
+}
