@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
   styleUrl: './login.css',
 })
 export class Login {
+  private router = inject(Router);
   private fb = inject(FormBuilder);
   showPassword = false;
   togglePasswordVisibility() {
@@ -20,6 +22,7 @@ export class Login {
   });
 
   onSubmit() {
+    this.router.navigate(['/dashboard']);
     if (this.loginForm.valid) {
       this.loginForm.markAllAsTouched();
       return;

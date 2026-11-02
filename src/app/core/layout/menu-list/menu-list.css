@@ -1,0 +1,48 @@
+:host {
+    display: block;
+}
+
+/*****/
+:host ::ng-deep .p-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/********/
+:host ::ng-deep .p-dock-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 12px 8px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Each menu item */
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 55px;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+/* Icon */
+.menu-icon {
+    font-size: 20px;
+}
+
+/* Label */
+.menu-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #111827;
+}

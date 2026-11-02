@@ -1,0 +1,19 @@
+:host ::ng-deep .p-drawer {
+    background: #020617;
+    color: #ffffff;
+}
+
+.wallet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wallet p {
+    margin: 0;
+}
+
+.wallet-icon {
+    display: flex;
+    align-items: center;
+}
