@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="top-up-request">
+    <div class="heder">
+      <p class="m">Wallet Management · Admin</p>
+      <h1>Top-Up Request</h1>
+      <p class="mm">Manage company funds and agent balances.</p>
+      <div class="bookings"></div>
+    </div>
+    <div class="Request-Details">
+      <h2>Request Details</h2>
+
+      <div class="form-group">
+        <label for="amount">Requested Amount</label>
+        <input type="number" id="amount" placeholder="25,000.00" />
+      </div>
+
+      <div class="form-group">
+        <label for="bank">Preferred company bank account</label>
+
+        <select id="bank">
+          <option>Al Rajhi Bank 5892 0598 5520 0000</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="reference">Transfer Reference Number</label>
+
+        <input type="text" id="reference" placeholder="9884989525495" />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Transfer Date</label>
+
+        <input type="date" id="date" />
+      </div>
+
+      /*ai*/
+      <div class="form-group">
+        <label>Proof Document</label>
+
+        <div class="upload-box">
+          <i class="pi pi-upload"></i>
+
+          <p>Drag & drop your photo here, or click the button below to browse</p>
+
+          <span> PDF or Image (JPG,PNG) up to 10MB Bank Transfer Receipt only. </span>
+
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" />
+        </div>
+      </div>
+    </div>
+    <div class="form-group notes-group">
+      <label for="notes"> Notes <span>(Optional)</span> </label>
+
+      <textarea
+        id="notes"
+        placeholder="Add any additional notes or information"
+        rows="3"
+      ></textarea>
+    </div>
+    <div class="bouttun">
+      <button type="button" class="cancel-button">Cancel</button>
+
+      <button type="submit" class="submit-button">Submit Request</button>
+    </div>
+  </div>
+</div>
