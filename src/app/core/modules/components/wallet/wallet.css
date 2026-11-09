@@ -26,8 +26,6 @@
 
 .mm {
     color: var(--Profile-Frame, #0F1D33);
-    leading-trim: both;
-    text-edge: cap;
 
     /* h2 */
     font-family: Poppins;

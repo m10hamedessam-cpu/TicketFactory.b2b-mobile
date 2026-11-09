@@ -36,8 +36,7 @@
 
 .top-up-request h1 {
     color: var(--Profile-Frame, #0F1D33);
-    leading-trim: both;
-    text-edge: cap;
+
 
     /* h2 */
     font-family: Poppins;
@@ -139,7 +138,6 @@
 
 
 
-/*ai*/
 
 /* Upload Icon */
 .upload-box i {
