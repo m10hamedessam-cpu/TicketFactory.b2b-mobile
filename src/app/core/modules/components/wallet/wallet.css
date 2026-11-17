@@ -14,26 +14,36 @@
     margin: 0 auto;
 }
 
-.wallet-page h2 {
-    color: #ff6633;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 0 18px;
+.wallet-page .header p:first-child {
+    color: var(--Primary-Orange, #FF6B35);
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 15.4px */
 }
 
 .mm {
-    color: #0F1D33;
-    font-size: 40px;
-    font-weight: 700;
-    margin: 0 0 14px;
+    color: var(--Profile-Frame, #0F1D33);
+
+    /* h2 */
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    /* 133.333% */
 }
 
 .mmm {
-    color: #85899a;
-    font-size: 18px;
+    color: var(--Gray-Shade, #6C7083);
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
     font-weight: 400;
-    margin: 0;
-    line-height: 1.6;
+    line-height: 140%;
+    /* 15.4px */
 }
 
 .total-card {
@@ -139,6 +149,14 @@
     cursor: pointer;
 }
 
+.nn {
+    color: #222222
+}
+
+.n {
+    color: #85899a
+}
+
 .wallet-action-button i,
 .top-up-button i {
     font-size: 18px;
@@ -222,4 +240,22 @@
 
 .container {
     padding-bottom: 110px;
+}
+
+.copy-button {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.copy-button:focus-visible,
+.top-up-button:focus-visible,
+.wallet-action-button:focus-visible {
+    outline: 2px solid #ff6633;
+    outline-offset: 2px;
 }
