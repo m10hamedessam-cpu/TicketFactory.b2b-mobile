@@ -14,7 +14,7 @@
     margin: 0 auto;
 }
 
-.wallet-history h2 {
+.wallet-history .header p:first-child {
     color: var(--Primary-Orange, #FF6B35);
     font-family: Poppins;
     font-size: 15px;
@@ -92,6 +92,11 @@
     margin-top: 16px;
 }
 
+.search-box:focus-within {
+    border-color: #0f1d33;
+    box-shadow: 0 0 0 2px rgba(15, 29, 51, 0.15);
+}
+
 .search-box {
     display: flex;
     align-items: center;
@@ -157,6 +162,12 @@
 .filter-button i,
 .export-button i {
     font-size: 16px;
+}
+
+.filter-button:focus-visible,
+.export-button:focus-visible {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
 }
 
 .table-container {
