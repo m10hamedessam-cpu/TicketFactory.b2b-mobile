@@ -12,21 +12,22 @@ import { Router } from '@angular/router';
 export class Login {
   private router = inject(Router);
   private fb = inject(FormBuilder);
-  
-  
+
   showPassword = signal(false);
-  togglePasswordVisibility(): void{
-this.showPassword.update(visible => !visible);  }
+  togglePasswordVisibility(): void {
+    this.showPassword.update((visible) => !visible);
+  }
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  onSubmit() {
-    this.router.navigate(['/dashboard']);
-    if (this.loginForm.valid) {
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
+
+    this.router.navigate(['/dashboard']);
   }
 }

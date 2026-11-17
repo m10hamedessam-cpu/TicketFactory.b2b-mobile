@@ -37,7 +37,7 @@
       </div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="Email"> Email</label>
+          <label for="email"> Email</label>
 
           <input
             id="email"
@@ -45,29 +45,52 @@
             formControlName="email"
             placeholder=" agent@youragency.com"
             autocomplete="username"
+            [aria-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched"
           />
+          @if (loginForm.controls.email.invalid && loginForm.controls.email.touched) {
+            <span class="alert-message" role="alert">
+              @if (loginForm.controls.email.hasError('required')) {
+                Email is required
+              } @else if (loginForm.controls.email.hasError('email')) {
+                Please enter a valid email address
+              }
+            </span>
+          }
         </div>
         <div class="form-group">
-          <label for="Password"> Password</label>
+          <label for="password"> Password</label>
           <div class="password-wrapper">
             <input
               id="password"
-              type="showPassword() ? 'text' : 'password'"
+              [type]="showPassword() ? 'text' : 'password'"
               formControlName="password"
               placeholder=".............."
-              autocomplete="current Password"
+              autocomplete="current-Password"
+              [aria-invalid]="
+                loginForm.controls.password.invalid && loginForm.controls.password.touched
+              "
             />
-            <button type="button" 
-            (click)="togglePasswordVisibility()"
-            aria-label="Toggle password visibility"
+            <button
+              type="button"
+              (click)="togglePasswordVisibility()"
+              aria-label="Toggle password visibility"
             >
-            @if (showPassword()) {
-              Hide
-            } @else {
-              Show
-            }
+              @if (showPassword()) {
+                Hide
+              } @else {
+                Show
+              }
             </button>
           </div>
+          @if (loginForm.controls.password.invalid && loginForm.controls.password.touched) {
+            <span class="alert-message" role="alert">
+              @if (loginForm.controls.password.hasError('required')) {
+                Password is required
+              } @else if (loginForm.controls.password.hasError('minlength')) {
+                Password must be at least 6 characters.
+              }
+            </span>
+          }
         </div>
         <div class="forgot-password">
           <a href="#">Forgot Password?</a>
