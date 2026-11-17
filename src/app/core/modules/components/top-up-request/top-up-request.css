@@ -254,3 +254,23 @@
     padding-bottom: 110px;
     box-sizing: border-box;
 }
+
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.alert-message {
+    margin: 4px 0 0;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.upload-box .selected-file {
+    margin: 8px 0 0;
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: 600;
+}
