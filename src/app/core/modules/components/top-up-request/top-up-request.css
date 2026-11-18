@@ -1,0 +1,220 @@
+.container {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-bg-page);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.top-up-request {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 110px;
+    box-sizing: border-box;
+}
+
+.header p:first-of-type {
+    color: var(--color-primary-accessible);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 140%;
+    margin: 0 0 4px;
+}
+
+.header h1 {
+    color: var(--color-navy);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0 0 8px;
+}
+
+.header p:last-of-type {
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 140%;
+    margin: 0 0 16px;
+}
+
+.request-details {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.request-details h2 {
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border-input);
+    border-radius: 8px;
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 102, 51, 0.1);
+}
+
+.upload-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 150px;
+    padding: 16px;
+    border: 2px dashed var(--color-border-input);
+    border-radius: 8px;
+    background-color: var(--color-bg-surface);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.upload-box i {
+    font-size: 32px;
+    color: var(--color-navy-dark);
+    margin-bottom: 12px;
+}
+
+.upload-box p {
+    margin: 0 0 10px;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.upload-box span {
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.upload-box input[type='file'] {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.notes-group label span {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.notes-group textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid var(--color-border-input);
+    border-radius: 8px;
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.notes-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 102, 51, 0.1);
+}
+
+.notes-group textarea::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.cancel-button {
+    flex: 1;
+    height: 44px;
+    background-color: var(--color-bg-surface);
+    color: var(--color-navy-dark);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.submit-button {
+    flex: 2;
+    height: 44px;
+    background-color: var(--color-navy-deep);
+    color: var(--color-text-inverse);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: var(--color-bg-page);
+}
+
+.submit-button:hover {
+    background-color: var(--color-navy);
+}
+
+.form-group input[aria-invalid='true'],
+.form-group select[aria-invalid='true'] {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.alert-message {
+    margin: 4px 0 0;
+    color: var(--color-danger);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.upload-box .selected-file {
+    margin: 8px 0 0;
+    color: var(--color-success);
+    font-size: 12px;
+    font-weight: 600;
+}

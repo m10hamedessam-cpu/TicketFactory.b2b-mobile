@@ -1,9 +1,9 @@
 <div class="container">
   <div class="wallet-page">
-    <div class="heder">
-      <h2>Wallet Management · Admin</h2>
-      <h1 class="mm">Wallet</h1>
-      <h3 class="mmm">Manage company funds and agent balances.</h3>
+    <div class="header">
+      <p>Wallet Management · Admin</p>
+      <h1>Wallet</h1>
+      <p>Manage company funds and agent balances.</p>
     </div>
 
     <div class="total-card">
@@ -19,33 +19,37 @@
 
       <p class="wallet-update">2 min ago · Last update</p>
 
-      <button class="top-up-button">
-        <i class="pi pi-wallet"></i>
+      <button type="button" class="top-up-button" routerLink="/top-up-request">
+        <i class="pi pi-wallet" aria-hidden="true"></i>
         <span>Top-Up Request</span>
       </button>
 
       <div class="wallet-actions">
-        <button class="wallet-action-button">
-          <i class="pi pi-history"></i>
+        <button type="button" class="wallet-action-button" routerLink="/wallet-history">
+          <i class="pi pi-history" aria-hidden="true"></i>
           <span>Wallet History</span>
         </button>
 
-        <button class="wallet-action-button">
-          <i class="pi pi-file"></i>
+        <button type="button" class="wallet-action-button" routerLink="/request-status">
+          <i class="pi pi-file" aria-hidden="true"></i>
           <span>Request Status</span>
         </button>
       </div>
     </div>
-    <div class="Bookings History">
-      <h1>Bookings History</h1>
-      <p>
+
+    <div class="bookings-history">
+      <h2 class="section-title">Bookings History</h2>
+      <p class="section-subtitle">
         Transfer to our bank account, send the receipt to support, and the accountants will credit
         it manually.
       </p>
-      <div class="acc-1">
+
+      <div class="bank-account-card">
         <div class="account-header">
           <h3>Account 1</h3>
-          <i class="pi pi-copy"></i>
+          <button type="button" class="copy-button" aria-label="Copy Account 1 details">
+            <i class="pi pi-copy" aria-hidden="true"></i>
+          </button>
         </div>
 
         <div class="account-details">
@@ -66,10 +70,12 @@
         </div>
       </div>
 
-      <div class="acc-1">
+      <div class="bank-account-card">
         <div class="account-header">
           <h3>Account 2</h3>
-          <i class="pi pi-copy"></i>
+          <button type="button" class="copy-button" aria-label="Copy Account 2 details">
+            <i class="pi pi-copy" aria-hidden="true"></i>
+          </button>
         </div>
 
         <div class="account-details">
@@ -90,10 +96,12 @@
         </div>
       </div>
 
-      <div class="acc-1">
+      <div class="bank-account-card">
         <div class="account-header">
           <h3>Account 3</h3>
-          <i class="pi pi-copy"></i>
+          <button type="button" class="copy-button" aria-label="Copy Account 3 details">
+            <i class="pi pi-copy" aria-hidden="true"></i>
+          </button>
         </div>
 
         <div class="account-details">
