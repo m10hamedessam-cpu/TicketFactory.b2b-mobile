@@ -1,13 +1,13 @@
 <div class="container">
   <div class="top-up-request">
-    <div class="heder">
-      <p class="m">Wallet Management · Admin</p>
+    <div class="header">
+      <p>Wallet Management · Admin</p>
       <h1>Top-Up Request</h1>
-      <p class="mm">Manage company funds and agent balances.</p>
+      <p>Manage company funds and agent balances.</p>
       <div class="bookings"></div>
     </div>
 
-    <form class="Request-Details" [formGroup]="topUpForm" (ngSubmit)="onSubmit()" novalidate>
+    <form class="request-Details" [formGroup]="topUpForm" (ngSubmit)="onSubmit()" novalidate>
       <h2>Request Details</h2>
 
       <div class="form-group">
@@ -118,7 +118,7 @@
         ></textarea>
       </div>
 
-      <div class="bouttun">
+      <div class="form-actions">
         <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
         <button type="submit" class="submit-button">Submit Request</button>
       </div>
