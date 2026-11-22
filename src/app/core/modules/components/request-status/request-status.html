@@ -5,37 +5,32 @@
       <h1>Request Status</h1>
       <p>Track and manage all your top-up requests.</p>
     </div>
+
     <div class="cards-request">
-      <div class="status-card">
-        <p>Total Requests</p>
-        <h2>18</h2>
-      </div>
-
-      <div class="status-card">
-        <p>Approved</p>
-        <h2>12</h2>
-      </div>
-
-      <div class="status-card">
-        <p>Pending Approval</p>
-        <h2>4</h2>
-      </div>
-
-      <div class="status-card">
-        <p>Rejected</p>
-        <h2>2</h2>
-      </div>
+      @for (card of summaryCards(); track card.label) {
+        <div class="status-card">
+          <p>{{ card.label }}</p>
+          <h2>{{ card.count }}</h2>
+        </div>
+      }
     </div>
+
     <div class="all-requests">
       <div class="requests-header">
-        <span class="results-count"> 18 result </span>
+        <span class="results-count">{{ filteredRequests().length }} result</span>
         <h2>All Requests</h2>
       </div>
+
       <div class="requests-toolbar">
         <div class="search-box">
-          <i class="pi pi-search"></i>
-
-          <input type="text" placeholder="Search by Request ID" aria-label="Search by Request ID" />
+          <i class="pi pi-search" aria-hidden="true"></i>
+          <input
+            type="text"
+            placeholder="Search by Request ID"
+            aria-label="Search by Request ID"
+            [value]="searchQuery()"
+            (input)="onSearch($event)"
+          />
         </div>
 
         <button class="filter-button" type="button" aria-label="Filter requests">
@@ -46,12 +41,19 @@
           <i class="pi pi-upload" aria-hidden="true"></i>
         </button>
       </div>
+
       <div class="table-container">
         <table class="requests-table">
           <thead>
             <tr>
               <th>
-                <input type="checkbox" aria-label="Select all requests" />
+                <input
+                  type="checkbox"
+                  aria-label="Select all requests"
+                  [checked]="isAllSelected()"
+                  [indeterminate]="isIndeterminate()"
+                  (change)="toggleSelectAll($event)"
+                />
               </th>
               <th>Request ID</th>
               <th>Amount</th>
@@ -61,37 +63,28 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td><input type="checkbox" aria-label="Select request #T091" /></td>
-              <td>#T091</td>
-              <td>SAR 5,965.35</td>
-              <td>Al Rajhi Bank</td>
-              <td>Approved</td>
-            </tr>
-
-            <tr>
-              <td><input type="checkbox" aria-label="Select request #T092" /></td>
-              <td>#T092</td>
-              <td>SAR 3,500.00</td>
-              <td>Al Rajhi Bank</td>
-              <td>Pending</td>
-            </tr>
-
-            <tr>
-              <td><input type="checkbox" aria-label="Select request #T093" /></td>
-              <td>#T093</td>
-              <td>SAR 7,200.00</td>
-              <td>Al Rajhi Bank</td>
-              <td>Rejected</td>
-            </tr>
-
-            <tr>
-              <td><input type="checkbox" aria-label="Select request #T094" /></td>
-              <td>#T094</td>
-              <td>SAR 4,800.00</td>
-              <td>Al Rajhi Bank</td>
-              <td>Approved</td>
-            </tr>
+            @for (req of filteredRequests(); track req.id) {
+              <tr>
+                <td>
+                  <input
+                    type="checkbox"
+                    [attr.aria-label]="'Select request ' + req.id"
+                    [checked]="isSelected(req.id)"
+                    (change)="toggleRow(req.id)"
+                  />
+                </td>
+                <td>{{ req.id }}</td>
+                <td>{{ req.currency }} {{ req.amount | number: '1.2-2' }}</td>
+                <td>{{ req.bankAccount }}</td>
+                <td>{{ req.status }}</td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 16px">
+                  No matching requests found.
+                </td>
+              </tr>
+            }
           </tbody>
         </table>
       </div>

@@ -44,83 +44,37 @@
         it manually.
       </p>
 
-      <div class="bank-account-card">
-        <div class="account-header">
-          <h3>Account 1</h3>
-          <button type="button" class="copy-button" aria-label="Copy Account 1 details">
-            <i class="pi pi-copy" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <div class="account-details">
-          <div class="account-row">
-            <span>Bank</span>
-            <strong>Al Rajhi Bank</strong>
+      @for (account of accounts; track account.id) {
+        <div class="bank-account-card">
+          <div class="account-header">
+            <h3>{{ account.accountTitle }}</h3>
+            <button
+              type="button"
+              class="copy-button"
+              [attr.aria-label]="'Copy ' + account.accountTitle + ' details'"
+            >
+              <i class="pi pi-copy" aria-hidden="true"></i>
+            </button>
           </div>
 
-          <div class="account-row">
-            <span>IBAN</span>
-            <strong>SA03 8000 0000 6080 1016 7519</strong>
-          </div>
+          <div class="account-details">
+            <div class="account-row">
+              <span>Bank</span>
+              <strong>{{ account.bankName }}</strong>
+            </div>
 
-          <div class="account-row">
-            <span>Beneficiary</span>
-            <strong>TicketFactory KSA Co.</strong>
-          </div>
-        </div>
-      </div>
+            <div class="account-row">
+              <span>IBAN</span>
+              <strong>{{ account.iban }}</strong>
+            </div>
 
-      <div class="bank-account-card">
-        <div class="account-header">
-          <h3>Account 2</h3>
-          <button type="button" class="copy-button" aria-label="Copy Account 2 details">
-            <i class="pi pi-copy" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <div class="account-details">
-          <div class="account-row">
-            <span>Bank</span>
-            <strong>Al Rajhi Bank</strong>
-          </div>
-
-          <div class="account-row">
-            <span>IBAN</span>
-            <strong>SA03 8000 0000 6080 1016 7519</strong>
-          </div>
-
-          <div class="account-row">
-            <span>Beneficiary</span>
-            <strong>TicketFactory KSA Co.</strong>
+            <div class="account-row">
+              <span>Beneficiary</span>
+              <strong>{{ account.beneficiary }}</strong>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="bank-account-card">
-        <div class="account-header">
-          <h3>Account 3</h3>
-          <button type="button" class="copy-button" aria-label="Copy Account 3 details">
-            <i class="pi pi-copy" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <div class="account-details">
-          <div class="account-row">
-            <span>Bank</span>
-            <strong>Al Rajhi Bank</strong>
-          </div>
-
-          <div class="account-row">
-            <span>IBAN</span>
-            <strong>SA03 8000 0000 6080 1016 7519</strong>
-          </div>
-
-          <div class="account-row">
-            <span>Beneficiary</span>
-            <strong>TicketFactory KSA Co.</strong>
-          </div>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </div>
