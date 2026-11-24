@@ -1,11 +1,11 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { WalletService } from '../../../../services/wallet';
-
+import { PageHeader } from '../../../../../shared/components/page-header/page-header';
 @Component({
   selector: 'app-request-status',
   standalone: true,
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, PageHeader],
   templateUrl: './request-status.html',
   styleUrl: './request-status.css',
 })

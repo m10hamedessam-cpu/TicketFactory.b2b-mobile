@@ -1,11 +1,6 @@
 <div class="container">
   <div class="request-status">
-    <div class="header">
-      <p>Wallet Management · Admin</p>
-      <h1>Request Status</h1>
-      <p>Track and manage all your top-up requests.</p>
-    </div>
-
+    <app-page-header title="Request Status" subtitle="Manage company funds and agent balances." />
     <div class="cards-request">
       @for (card of summaryCards(); track card.label) {
         <div class="status-card">

@@ -3,10 +3,10 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WalletService } from '../../../../services/wallet';
 import { TopUpRequest as TopUpRequestModel } from '../../../../../models/wallet.models';
-
+import { PageHeader } from '../../../../../shared/components/page-header/page-header';
 @Component({
   selector: 'app-top-up-request',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, PageHeader],
   templateUrl: './top-up-request.html',
   styleUrl: './top-up-request.css',
 })

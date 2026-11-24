@@ -1,9 +1,10 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { WalletService } from '../../../../services/wallet';
+import { PageHeader } from '../../../../../shared/components/page-header/page-header';
 @Component({
   selector: 'app-wallet-history',
   standalone: true,
-  imports: [],
+  imports: [PageHeader],
   templateUrl: './wallet-history.html',
   styleUrl: './wallet-history.css',
 })

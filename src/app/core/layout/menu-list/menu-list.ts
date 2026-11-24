@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterLinkActive, RouterLink } from '@angular/router';
-import { DockModule } from 'primeng/dock';
+import { Component, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+export interface NavMenuItem {
+  label: string;
+  icon: string;
+  routerLink: string;
+}
 
 @Component({
   selector: 'app-menu-list',
   standalone: true,
-  imports: [DockModule, RouterLinkActive, RouterLink],
+  imports: [RouterLinkActive, RouterLink],
   templateUrl: './menu-list.html',
   styleUrl: './menu-list.css',
 })
 export class MenuList {
-  items = [
+  readonly items = signal<NavMenuItem[]>([
     {
       label: 'Dashboard',
       icon: 'pi pi-th-large',
@@ -36,5 +41,5 @@ export class MenuList {
       icon: 'pi pi-user',
       routerLink: '/profile',
     },
-  ];
+  ]);
 }

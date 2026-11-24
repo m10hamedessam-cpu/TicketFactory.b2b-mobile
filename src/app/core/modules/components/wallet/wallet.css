@@ -142,17 +142,7 @@
     margin: 0 0 16px;
 }
 
-.bank-account-card {
-    width: 100%;
-    margin-bottom: 20px;
-}
 
-.account-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
 
 .bookings-history p {
     font-size: 11px;
@@ -174,16 +164,7 @@
     color: var(--color-text-primary);
 }
 
-.copy-button {
-    background: transparent;
-    border: none;
-    padding: 6px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
+
 
 .account-header i {
     color: var(--color-primary);
@@ -197,21 +178,8 @@
     outline-offset: 2px;
 }
 
-.account-details {
-    width: 100%;
-    background-color: var(--color-bg-subtle);
-    border-radius: 12px;
-    overflow: hidden;
-}
 
-.account-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-    border-bottom: 1px solid var(--color-border-input);
-}
+
 
 .account-row:last-child {
     border-bottom: none;

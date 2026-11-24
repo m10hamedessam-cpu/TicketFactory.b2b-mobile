@@ -7,6 +7,6 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './top-bar.css',
 })
 export class TopBar {
-  title = input<string>('Wallet');
-  menuToggle = output<void>();
+  readonly title = input<string>('Wallet');
+  readonly menuToggle = output<void>();
 }

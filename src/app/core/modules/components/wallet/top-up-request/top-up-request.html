@@ -1,11 +1,6 @@
 <div class="container">
   <div class="top-up-request">
-    <div class="header">
-      <p>Wallet Management · Admin</p>
-      <h1>Top-Up Request</h1>
-      <p>Manage company funds and agent balances.</p>
-      <div class="bookings"></div>
-    </div>
+    <app-page-header title="Top-Up Request" subtitle="Submit a new balance top-up request." />
 
     <form class="request-Details" [formGroup]="topUpForm" (ngSubmit)="onSubmit()" novalidate>
       <h2>Request Details</h2>

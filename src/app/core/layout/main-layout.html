@@ -1,5 +1,5 @@
 <div class="app-layout">
-  <app-top-bar title="Wallet" (menuToggle)="sidebarOpen.set(true)"></app-top-bar>
+  <app-top-bar [title]="pageTitle()" (menuToggle)="sidebarOpen.set(true)"></app-top-bar>
   <app-sidebar [(visible)]="sidebarOpen"></app-sidebar>
   <main class="app-content">
     <router-outlet></router-outlet>
