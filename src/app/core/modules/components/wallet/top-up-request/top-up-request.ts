@@ -1,6 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { WalletService } from '../../../../services/wallet';
+import { TopUpRequest as TopUpRequestModel } from '../../../../../models/wallet.models';
 
 @Component({
   selector: 'app-top-up-request',
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
 export class TopUpRequest {
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly walletService = inject(WalletService);
 
   readonly selectedFileName = signal<string>('');
   readonly fileError = signal<string>('');
@@ -64,8 +67,17 @@ export class TopUpRequest {
       this.topUpForm.markAllAsTouched();
       return;
     }
+    const formValue = this.topUpForm.getRawValue();
+    const newRequest: TopUpRequestModel = {
+      id: `REQ-${Math.floor(1000 + Math.random() * 9000)}`,
+      amount: Number(formValue.amount),
+      currency: 'SAR',
+      bankAccount: formValue.bank ?? '',
+      status: 'Pending',
+    };
 
-    this.router.navigate(['/wallet']);
+    this.walletService.addTopUpRequest(newRequest);
+    this.router.navigate(['/request-status']);
   }
   onCancel(): void {
     this.topUpForm.reset();

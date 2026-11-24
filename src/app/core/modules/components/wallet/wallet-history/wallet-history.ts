@@ -1,7 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
-import { MOCK_WALLET_TRANSACTIONS } from '../../../../../models/wallet.mock';
-import { WalletTransaction } from '../../../../../models/wallet.models';
-
+import { Component, computed, inject, signal } from '@angular/core';
+import { WalletService } from '../../../../services/wallet';
 @Component({
   selector: 'app-wallet-history',
   standalone: true,
@@ -10,7 +8,8 @@ import { WalletTransaction } from '../../../../../models/wallet.models';
   styleUrl: './wallet-history.css',
 })
 export class WalletHistory {
-  readonly transactions = signal<WalletTransaction[]>(MOCK_WALLET_TRANSACTIONS);
+  private readonly walletService = inject(WalletService);
+  readonly transactions = this.walletService.transactions;
   readonly searchQuery = signal<string>('');
 
   readonly filteredTransactions = computed(() => {

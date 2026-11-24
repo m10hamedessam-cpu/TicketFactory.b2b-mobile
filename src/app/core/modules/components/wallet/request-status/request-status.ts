@@ -1,7 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { MOCK_TOP_UP_REQUESTS } from '../../../../../models/wallet.mock';
-import { TopUpRequest } from '../../../../../models/wallet.models';
+import { WalletService } from '../../../../services/wallet';
 
 @Component({
   selector: 'app-request-status',
@@ -11,7 +10,8 @@ import { TopUpRequest } from '../../../../../models/wallet.models';
   styleUrl: './request-status.css',
 })
 export class RequestStatus {
-  readonly requests = signal<TopUpRequest[]>(MOCK_TOP_UP_REQUESTS);
+  private readonly walletService = inject(WalletService);
+  readonly requests = this.walletService.topUpRequests;
   readonly searchQuery = signal<string>('');
   readonly selectedIds = signal<Set<string>>(new Set());
 
