@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
-import { MOCK_WALLET_TRANSACTIONS } from '../../models/wallet.mock';
-import { WalletTransaction } from '../../models/wallet.models';
+import { MOCK_WALLET_TRANSACTIONS } from '../../../../../models/wallet.mock';
+import { WalletTransaction } from '../../../../../models/wallet.models';
 
 @Component({
   selector: 'app-wallet-history',

@@ -1,11 +1,5 @@
 import { Routes } from '@angular/router';
-import { Login } from './core/auth/login/login';
-import { MainLayout } from './core/layout/main-layout';
-import { Dashboard } from './core/modules/components/dashboard/dashboard';
-import { Wallet } from './core/modules/components/wallet/wallet';
-import { TopUpRequest } from './core/modules/components/top-up-request/top-up-request';
-import { RequestStatus } from './core/modules/components/request-status/request-status';
-import { WalletHistory } from './core/modules/components/wallet-history/wallet-history';
+import { authGuard } from './core/auth/guard/auth-guard';
 
 export const routes: Routes = [
   {
@@ -15,31 +9,69 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: Login,
+    title: 'Login',
+    loadComponent: () => import('./core/auth/login/login').then((m) => m.Login),
   },
   {
     path: '',
-    component: MainLayout,
+    canActivate: [authGuard],
+    loadComponent: () => import('./core/layout/main-layout').then((m) => m.MainLayout),
     children: [
       {
         path: 'wallet',
-        component: Wallet,
+        title: 'Wallet',
+        loadComponent: () =>
+          import('./core/modules/components/wallet/wallet').then((m) => m.Wallet),
       },
       {
         path: 'dashboard',
-        component: Dashboard,
+        title: 'Dashboard',
+        loadComponent: () =>
+          import('./core/modules/components/dashboard/dashboard').then((m) => m.Dashboard),
       },
       {
         path: 'top-up-request',
-        component: TopUpRequest,
+        title: 'Top-Up Request',
+        loadComponent: () =>
+          import('./core/modules/components/wallet/top-up-request/top-up-request').then(
+            (m) => m.TopUpRequest,
+          ),
       },
       {
         path: 'request-status',
-        component: RequestStatus,
+        title: 'Request Status',
+        loadComponent: () =>
+          import('./core/modules/components/wallet/request-status/request-status').then(
+            (m) => m.RequestStatus,
+          ),
       },
       {
         path: 'wallet-history',
-        component: WalletHistory,
+        title: 'Wallet History',
+        loadComponent: () =>
+          import('./core/modules/components/wallet/wallet-history/wallet-history').then(
+            (m) => m.WalletHistory,
+          ),
+      },
+      {
+        path: 'search',
+        title: 'Search',
+        loadComponent: () =>
+          import('./core/modules/components/search/search').then((m) => m.Search),
+      },
+      {
+        path: 'notifications',
+        title: 'Notifications',
+        loadComponent: () =>
+          import('./core/modules/components/notifications/notifications').then(
+            (m) => m.Notifications,
+          ),
+      },
+      {
+        path: 'profile',
+        title: 'Profile',
+        loadComponent: () =>
+          import('./core/modules/components/profile/profile').then((m) => m.Profile),
       },
     ],
   },

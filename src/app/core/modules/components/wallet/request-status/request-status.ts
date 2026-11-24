@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { MOCK_TOP_UP_REQUESTS } from '../../models/wallet.mock';
-import { TopUpRequest } from '../../models/wallet.models';
+import { MOCK_TOP_UP_REQUESTS } from '../../../../../models/wallet.mock';
+import { TopUpRequest } from '../../../../../models/wallet.models';
 
 @Component({
   selector: 'app-request-status',

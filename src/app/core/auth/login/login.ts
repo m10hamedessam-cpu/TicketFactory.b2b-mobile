@@ -1,7 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class Login {
   private router = inject(Router);
   private fb = inject(FormBuilder);
+  private AuthService = inject(AuthService);
 
   showPassword = signal(false);
   togglePasswordVisibility(): void {
@@ -27,6 +29,7 @@ export class Login {
       this.loginForm.markAllAsTouched();
       return;
     }
+    this.AuthService.Login();
 
     this.router.navigate(['/dashboard']);
   }
