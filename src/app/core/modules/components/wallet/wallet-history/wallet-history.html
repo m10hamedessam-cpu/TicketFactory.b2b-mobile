@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="wallet-history">
+    <div class="header">
+      <p>Wallet Management · Admin</p>
+      <h1>Wallet History</h1>
+      <p>Manage company funds and agent balances.</p>
+    </div>
+
+    <div class="all-requests">
+      <div class="requests-header">
+        <h2>My Transactions</h2>
+        <span class="results-count">Last 30 Days</span>
+      </div>
+
+      <div class="requests-toolbar">
+        <div class="search-box">
+          <i class="pi pi-search" aria-hidden="true"></i>
+          <input
+            type="text"
+            placeholder="Search by Request ID"
+            aria-label="Search by Request ID"
+            [value]="searchQuery()"
+            (input)="onSearch($event)"
+          />
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="requests-table">
+          <thead>
+            <tr>
+              <th>Reference ID</th>
+              <th>Date & Time</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (tx of filteredTransactions(); track tx.referenceId) {
+              <tr>
+                <td>{{ tx.referenceId }}</td>
+                <td>{{ tx.date }}</td>
+                <td>
+                  <strong>{{ tx.title }}</strong>
+                  <span class="transaction-status">{{ tx.statusText }}</span>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="3" style="text-align: center; padding: 16px">
+                  No matching transactions found.
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

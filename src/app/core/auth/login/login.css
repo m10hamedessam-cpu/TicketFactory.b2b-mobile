@@ -1,56 +1,67 @@
 @reference "tailwindcss";
 
-/**********************page-content***************************************/
 .login {
-    @apply min-h-screen w-full bg-[#050B1D] text-white;
+    @apply min-h-screen w-full flex flex-col;
+    background-color: var(--color-navy-deep);
+    color: var(--color-text-inverse);
 }
 
-/**********************************************************/
 .page-content {
     @apply px-4 pt-4;
 }
 
-/********************2**********************************/
 .logo {
-    @apply flex items-center gap-3;
+
+    @apply flex items-center;
+    gap: 8px;
+
+
 }
 
 .logo span:first-child {
-    @apply flex h-10 w-10 items-center justify-center rounded-xl bg-[#FF6633] text-lg font-bold text-white;
+    @apply flex items-center justify-center rounded-lg text-sm font-bold;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    width: 40px;
+    height: 40px;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+
 }
 
 .logo span:last-child {
-    @apply text-2xl font-bold;
+    @apply font-semibold tracking-tight;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
 }
 
-/*********************3*******************************************/
 .platform {
     @apply mt-6;
 }
 
 .platform>span {
-    @apply text-xs font-medium text-[#FF6633];
+    @apply text-[10px] font-semibold tracking-wider uppercase;
+    color: var(--color-primary);
 }
 
-/*********************4**********************************************/
 .platform-content {
     @apply mt-3;
 }
 
 .platform-content h1 {
-    @apply text-2xl font-bold leading-tight;
+    @apply text-[22px] font-semibold leading-snug;
 }
 
 .platform-content p {
-    @apply mt-3 text-sm leading-relaxed text-gray-400;
+    @apply mt-2 text-xs leading-relaxed;
+    color: var(--color-text-muted);
 }
 
-/* *********************5******************************************* */
-.page-login {
-    @apply mt-5 rounded-t-2xl bg-white px-4 py-5 text-[#111827];
-}
-
-/* *********************6********************************************************* */
 .hero-stats {
     @apply mt-6 grid grid-cols-3 border-t border-white/10 pt-4;
 }
@@ -64,16 +75,19 @@
 }
 
 .stat-item strong {
-    @apply text-base font-semibold text-white;
+    @apply text-base font-semibold;
+    color: var(--color-text-inverse);
 }
 
 .stat-item span {
     @apply text-xs text-gray-400;
 }
 
-/************************ page-login *********************************/
+/* Login Form Card */
 .page-login {
-    @apply bg-white text-[#111827] rounded-t-3xl px-5 py-7;
+    @apply mt-5 rounded-t-3xl px-5 py-7;
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
 }
 
 .login-card {
@@ -86,48 +100,47 @@
 
 .login-header h2 {
     @apply text-2xl font-bold;
+    color: var(--color-navy);
 }
 
 .login-header p {
-    @apply mt-2 text-sm text-gray-500;
+    @apply mt-2 text-sm;
+    color: var(--color-text-secondary);
 }
 
-/**********************************************************************/
 .form-group {
     @apply flex flex-col gap-2 mb-5;
 }
 
 .form-group label {
-    @apply text-sm font-semibold text-gray-700;
+    @apply text-sm font-semibold;
+    color: var(--color-text-primary);
 }
 
 .form-group input {
-    @apply w-full h-12 rounded-lg border border-gray-300 px-3 text-sm outline-none;
+    @apply w-full h-12 rounded-lg px-3 text-sm outline-none;
+    border: 1px solid var(--color-border-input);
 }
 
 .form-group input:focus {
-    @apply border-orange-500 ring-2 ring-orange-100;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
 }
 
 .form-group input::placeholder {
-    @apply text-gray-400;
+    color: var(--color-text-muted);
 }
 
-/**************************************************************************/
-.forgot-password {
-    @apply flex justify-end -mt-2 mb-5;
+.form-group input[aria-invalid="true"] {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
 }
 
-.forgot-password a {
-    @apply text-sm font-semibold text-orange-600 no-underline;
+.alert-message {
+    @apply text-xs font-medium mt-1;
+    color: var(--color-danger);
 }
 
-/***********************************************************************/
-.form-group button {
-    @apply text-sm font-semibold text-orange-600;
-}
-
-/***********************************************************************/
 .password-wrapper {
     @apply relative w-full;
 }
@@ -137,69 +150,63 @@
 }
 
 .password-wrapper button {
-    @apply absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-orange-600;
+    @apply absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold cursor-pointer bg-transparent border-none;
 }
 
-/* Submit Button */
+.forgot-password {
+    @apply flex justify-end -mt-2 mb-5;
+}
+
+.forgot-password a {
+    @apply text-sm font-semibold no-underline;
+    color: var(--color-primary-accessible);
+}
+
 .submit-button {
     @apply mt-5 w-full;
 }
 
 .submit-button button {
-    @apply w-full h-12 rounded-lg bg-[#FF6633] text-sm font-semibold text-white transition-colors;
+    @apply w-full h-12 rounded-lg text-sm font-semibold transition-colors border-none cursor-pointer;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
 }
 
 .submit-button button:hover {
-    @apply bg-orange-600;
+    background-color: var(--color-primary-accessible);
 }
 
 .submit-button button:active {
     @apply scale-[0.98];
 }
 
-/*******************************************************************/
 .support {
     @apply flex items-center justify-center gap-1 mt-6 text-xs;
 }
 
 .support span {
-    @apply text-gray-500;
+    color: var(--color-text-secondary);
 }
 
 .support a {
-    @apply font-medium text-orange-600 no-underline;
+    @apply font-medium no-underline;
+    color: var(--color-primary-accessible);
 }
-
 
 @media (min-width: 1024px) {
     .login {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: row-reverse;
+        @apply min-h-screen flex flex-row-reverse;
     }
 
     .page-content {
-        width: 50%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 48px;
+        @apply w-1/2 min-h-screen flex flex-col justify-between p-12;
     }
 
     .page-login {
-        width: 50%;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0;
-        padding: 48px;
+        @apply w-1/2 min-h-screen mt-0 flex items-center justify-center rounded-none p-12;
     }
 
     .login-card {
-        width: 100%;
-        max-width: 430px;
-        margin: auto;
+        @apply w-full max-w-[430px] m-auto;
     }
 }
