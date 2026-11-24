@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="top-up-request">
+    <div class="header">
+      <p>Wallet Management · Admin</p>
+      <h1>Top-Up Request</h1>
+      <p>Manage company funds and agent balances.</p>
+      <div class="bookings"></div>
+    </div>
+
+    <form class="request-Details" [formGroup]="topUpForm" (ngSubmit)="onSubmit()" novalidate>
+      <h2>Request Details</h2>
+
+      <div class="form-group">
+        <label for="amount">Requested Amount</label>
+        <input
+          type="number"
+          id="amount"
+          formControlName="amount"
+          placeholder="25,000.00"
+          [attr.aria-invalid]="
+            topUpForm.controls.amount.invalid && topUpForm.controls.amount.touched
+          "
+        />
+        @if (topUpForm.controls.amount.invalid && topUpForm.controls.amount.touched) {
+          <p class="alert-message" role="alert">
+            @if (topUpForm.controls.amount.hasError('required')) {
+              Requested amount is required.
+            } @else if (topUpForm.controls.amount.hasError('min')) {
+              Amount must be greater than 0.
+            }
+          </p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="bank">Preferred company bank account</label>
+        <select
+          id="bank"
+          formControlName="bank"
+          [attr.aria-invalid]="topUpForm.controls.bank.invalid && topUpForm.controls.bank.touched"
+        >
+          <option value="Al Rajhi Bank 5892 0598 5520 0000">
+            Al Rajhi Bank 5892 0598 5520 0000
+          </option>
+        </select>
+        @if (topUpForm.controls.bank.invalid && topUpForm.controls.bank.touched) {
+          <p class="alert-message" role="alert">Please select a bank account.</p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="reference">Transfer Reference Number</label>
+        <input
+          type="text"
+          id="reference"
+          placeholder="9884989525495"
+          formControlName="reference"
+          [attr.aria-invalid]="
+            topUpForm.controls.reference.invalid && topUpForm.controls.reference.touched
+          "
+        />
+        @if (topUpForm.controls.reference.invalid && topUpForm.controls.reference.touched) {
+          <p class="alert-message" role="alert">
+            @if (topUpForm.controls.reference.hasError('required')) {
+              Transfer reference number is required.
+            } @else if (topUpForm.controls.reference.hasError('minlength')) {
+              Reference number must be at least 4 characters.
+            }
+          </p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="date">Transfer Date</label>
+        <input
+          type="date"
+          id="date"
+          formControlName="date"
+          [attr.aria-invalid]="topUpForm.controls.date.invalid && topUpForm.controls.date.touched"
+        />
+        @if (topUpForm.controls.date.invalid && topUpForm.controls.date.touched) {
+          <p class="alert-message" role="alert">Transfer date is required.</p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="proof">Proof Document</label>
+        <div class="upload-box">
+          <i class="pi pi-upload"></i>
+          <p>Drag & drop your photo here, or click the button below to browse</p>
+          <span>PDF or Image (JPG,PNG) up to 10MB Bank Transfer Receipt only.</span>
+          <input
+            type="file"
+            id="proof"
+            accept=".pdf,.jpg,.jpeg,.png"
+            (change)="onFileSelected($event)"
+          />
+          @if (selectedFileName()) {
+            <p class="selected-file">Selected: {{ selectedFileName() }}</p>
+          }
+        </div>
+        @if (fileError()) {
+          <p class="alert-message" role="alert">{{ fileError() }}</p>
+        } @else if (
+          topUpForm.controls.proofDocument.invalid && topUpForm.controls.proofDocument.touched
+        ) {
+          <p class="alert-message" role="alert">Bank transfer receipt is required.</p>
+        }
+      </div>
+
+      <div class="form-group notes-group">
+        <label for="notes">Notes <span>(Optional)</span></label>
+        <textarea
+          id="notes"
+          formControlName="notes"
+          placeholder="Add any additional notes or information"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="submit-button">Submit Request</button>
+      </div>
+    </form>
+  </div>
+</div>
