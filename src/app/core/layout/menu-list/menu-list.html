@@ -1,11 +1,8 @@
-<p-dock [model]="items" position="bottom">
-  <ng-template #item let-item>
-    <div class="menu-item" [routerLink]="item.routerLink" routerLinkActive="active">
-      <span class="menu-icon"> <i [class]="item.icon" aria-hidden="true"></i> </span>
-
-      <span class="menu-label">
-        {{ item.label }}
-      </span>
-    </div>
-  </ng-template>
-</p-dock>
+<nav class="bottom-nav" aria-label="Bottom navigation">
+  @for (item of items(); track item.routerLink) {
+    <a class="menu-item" [routerLink]="item.routerLink" routerLinkActive="active">
+      <span class="menu-icon"><i [class]="item.icon" aria-hidden="true"></i></span>
+      <span class="menu-label">{{ item.label }}</span>
+    </a>
+  }
+</nav>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { DrawerModule } from 'primeng/drawer';
 
 @Component({
@@ -9,5 +9,5 @@ import { DrawerModule } from 'primeng/drawer';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-  visible = false;
+  visible = model<boolean>(false);
 }
